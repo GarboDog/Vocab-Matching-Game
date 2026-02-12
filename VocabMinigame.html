@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+    .Container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: max-content;
+    }
+
+    .startButton{
+        background-color: rgb(47, 255, 78);
+        font-size: 18px;
+        text-align: center;
+        width: 100px;
+        height: 20px;
+        padding-top: 10px;
+        padding-bottom: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .stopButton{
+        background-color: rgb(160, 15, 15);
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        width: 100px;
+        height: 20px;
+        padding-top: 10px;
+        padding-bottom: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .resetButton{
+        background-color: lightskyblue;
+        font-size: 18px;
+        text-align: center;
+        width: 100px;
+        height: 20px;
+        padding-top: 10px;
+        padding-bottom: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .timerBox{
+        background-color: rgb(255, 255, 255);
+        border: 1px solid black;
+        font-size: 18px;
+        text-align: center;
+        width: 90px;
+        height: 16px;
+        padding-top: 5px;
+        padding-bottom: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .timer{
+        background-color: rgb(220, 204, 204);
+        font-size: 18px;
+        text-align: center;
+        width: 100px;
+        height: 20px;
+        padding-top: 10px;
+        padding-bottom: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .buttonBlank{
+        background-color: grey;
+        font-size: 18px;
+        text-align: center;
+        width: 150px;
+        min-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .buttonFilledUnSel{
+        background-color: rgb(208, 206, 206);
+        font-size: 18px;
+        text-align: center;
+        width: 150px;
+        min-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .buttonFilledSel{
+        background-color: whitesmoke;
+        font-size: 18px;
+        text-align: center;
+        width: 150px;
+        min-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .buttonFilledGrn{
+        background-color: greenyellow;
+        font-size: 18px;
+        text-align: center;
+        width: 150px;
+        min-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .buttonFilledRed{
+        background-color: red;
+        font-size: 18px;
+        text-align: center;
+        width: 150px;
+        min-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+</style>
+<body onload="initialLoad()">
+
+    <div class="Container">
+        <h1>
+            Vocab Matching!
+        </h1>
+    </div>
+
+    <div class="Container">
+
+        <div class="grid">
+        
+        <!-- row 1 -->
+            <div    class="buttonBlank"
+                    onclick="selectLeft(this)" 
+                    id="L1">
+            </div>
+
+            <div    class="buttonBlank" 
+                    onclick="selectRight(this)" 
+                    id="R1">
+            </div>
+
+        <!-- row 2 -->
+            <div    class="buttonBlank" 
+                    onclick="selectLeft(this)" 
+                    id="L2">
+            </div>
+
+            <div    class="buttonBlank"  
+                    onclick="selectRight(this)" 
+                    id="R2">
+            </div>
+
+        <!-- row 3 -->
+            <div    class="buttonBlank"
+                    onclick="selectLeft(this)"
+                    id="L3">
+            </div>
+
+            <div    class="buttonBlank"
+                    onclick="selectRight(this)"
+                    id="R3">
+            </div>
+
+        <!-- row 4 -->
+            <div    class="buttonBlank"
+                    onclick="selectLeft(this)"
+                    id="L4">
+            </div>
+
+            <div    class="buttonBlank"
+                    onclick="selectRight(this)"
+                    id="R4">
+            </div>
+
+        <!-- row 5 -->
+            <div    class="buttonBlank"
+                    onclick="selectLeft(this)" 
+                    id="L5">
+            </div>
+
+            <div    class="buttonBlank"
+                    onclick="selectRight(this)"
+                    id="R5">
+            </div>
+        
+        </div>
+
+    </div>
+
+    <div id="timerDiv" style="display: none;">
+        <div    class=  "Container"
+                style=  "margin-top: 10px;
+                        display: flex;
+                        align-items: center;
+                        display: flex;">
+
+            <div    class=  "timerBox"
+                    id="timerBox"
+                    style=  "font-size: 18px; 
+                            margin-left: 8px; 
+                            margin-right: 8px;">
+                        000
+            </div>
+
+            <div    class="stopButton" onclick="gameEnd()">
+                        Stop!
+            </div>
+
+        </div>
+    </div>
+
+    <div id="vocabInputTextArea">
+        <div class="Container" style="margin-top: 15px;">
+
+            <textarea
+                id="vocabUserInput"
+                style="
+                    width: 300px;
+                    min-height: 100px;
+                    padding: 8px;
+                    box-sizing: border-box;"
+                placeholder="El vocabulario, vocabulary; Palabra dos, Word two..."></textarea>
+
+        </div>
+    </div>
+
+    <div id="startDiv">
+        <div class="Container" style="margin-top: 0px; display: flex;align-items: center;">
+
+            <input  type="text" 
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    value="60"
+                    style="font-size: 18px; width: 40px;text-align: center;" 
+                    id="setReqTime">
+            
+            <p style="font-size: 18px; margin-left: 8px; margin-right: 8px;">seconds</p>
+
+            <div class="startButton" onclick="startGame()">
+                Start
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <div id="resultsDiv" style="display: none;">
+        <div class="Container" style="margin-top: 10px; display: flex;align-items: center;" >
+
+            <div>
+                <p id="scoreP" style="margin-top: 0px;">SCORE: </p>
+                <p id="numCorrectP" style="margin-top: -15px;">Number Correct: #</p>
+                <p id="numWrongP" style="margin-top: -15px;">Number Wrong: #</p>
+                <p style="margin-top: -5px;">Words that you had difficulty with:</p>
+                <p id="listOfWrongVocabsP" style="white-space: pre-line; margin-top: -15px;">N/A</p>
+                <div class="Container" style="margin-top: -15px;">
+                    <div class="resetButton" onclick="gameReset()">
+                        Reset
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="Container" style="background-color: white;">
+        <h2>
+            INSTRUCTIONS
+        </h2>
+    </div>
+    <div class="Container" style="background-color: white; text-align: center;">
+        <p>
+            Vocab Matching! is a little game we made to help<br>
+            practice and memorize vocabulary! You can input any words<br>
+            you like to practice any language like Spanish, German,<br>
+            Japanese, and more!<br>
+            <br>
+            In order to play this game we first need to import some vocab!<br>
+            To do so, organize and list all the words you want to learn as<br>
+            so:<br>
+            First Word. Second Word;<br>
+            Each matching pair has the first and second vocabulary words<br>
+            seperated by a "," and then all the diffferent matches are<br>
+            seperated by ";" and you can either have a space or line<br>
+            break after the semicolon; however you want to organize it<br>
+            (We personally like organizing with line breaks.) Here is the<br>
+            demo list for example:<br>
+            <br>
+            Glass, Vaso;<br>
+            House, Casa;<br>
+            Hello, Hola;<br>
+            Computer, Ordenadoe;<br>
+            Rat, Ratta;<br>
+            <br>
+            NOTE: the buttons are optimized for about 15 or 16 letters long,<br>
+            more will still work, it just might make the buttons taller than<br>
+            normal. Also it only supports 2 words per match, if you do something<br>
+            like: Consada, consado, tired;, it wont work and will not show up<br>
+            in the buttons/game. Also make sure to avoid duplicates as it may<br>
+            break the matching logic (were trash at coding sorry aaaa.)<br>
+            <br>
+            Timer: by default its set to 60, however you can click in the box<br>
+            and change it to whatever seconds you like. Normally we like to do<br>
+            1.5 seconds per match, so 30 seconds for 20 matches, 60 for 40 matches,<br>
+            so on and so forth, but do as much as your heart desires :3<br>
+            <br>
+            Once you put in your vocab and however long you like click Start!<br>
+            <br>
+            HOW TO PLAY: the matches will be mixed on on left and right so you<br>
+            dont get too hung up on one language or the other, just click one<br>
+            of the words and click the correct translated word on the other side!<br>
+            <br>
+            At the end you will be given an overall score, how many you got right<br>
+            how many you got wrong, and a list of words that you had trouble with<br>
+            obviosly in the same format as the input so you can copy and paste<br>
+            them back into the input if you would like to retry those words later.<br>
+            <br>
+            PS! YOU ARE FREE TO RIP THIS!! just throw a pitty credit link back<br>
+            to our website pretty please! :3
+        </p>
+    </div>
+
+</body>
+
+<script>
+
+    let selectedLeftButton = null;
+    let selectedLeftId = null;
+    let selectedRightButton = null;
+    let selectedRightId = null;
+    let selectedLeftCont = null;
+    let selectedRightCont = null;
+
+    let gameEndQueCt = 0;
+    let mismatchTimeout = 0;
+    let matchedTimeout = 0;
+    let delayRefillTimeout = 0;
+    let timeLeft = 0;
+    const input = document.getElementById("setReqTime");
+    input.addEventListener("input", () => {
+        input.value = input.value.replace(/[^0-9]/g, "");
+    });
+
+    let gameRunning = false;
+    let refillLocked = false;
+
+    let score = 0;
+    vocabCorrectNum = 0;
+
+    let emptyButtons = ["L1", "R1", "L2", "R2", "L3", "R3", "L4", "R4", "L5", "R5"];
+    let vocabList = [];
+    let vocabQue = [];
+    let vocabCorrect = [];
+    let vocabWrong = [];
+    //      This is the demo vocabulary that needs to be written to vocabQue on 
+    //          initial start up
+    let vocabDemoList = [
+        ["Hola", "Hello"],
+        ["Casa","House"],
+        ["Ordenador","Computer"],
+        ["Vaso","Glass"],
+        ["Ratta","Rat"]
+    ];
+
+    function selectLeft(el) {
+
+        //      Deselect
+        if (selectedLeftButton === el) {
+
+            el.classList.remove("buttonFilledSel", "buttonFilledRed");
+            el.classList.add("buttonFilledUnSel");
+
+            selectedLeftButton = null;
+            selectedLeftId = null;
+            selectedLeftCont = null;
+            return;
+        }
+
+        //      Unselect the other
+        if (selectedLeftButton) {
+
+            selectedLeftButton.classList.remove("buttonFilledSel", "buttonFilledRed");
+
+        }
+
+        //      Mismatch clear
+        if (mismatchTimeout) {
+
+            document.querySelectorAll(".buttonFilledRed").forEach(btn => {
+                btn.classList.remove("buttonFilledSel", "buttonFilledRed");
+                btn.classList.add("buttonFilledUnSel");
+            });
+            
+            clearTimeout(mismatchTimeout);
+            mismatchTimeout = null;
+        }
+
+        selectedLeftId = el.id;
+
+        //      check if its clickable
+        if (emptyButtons.includes(selectedLeftId)) {
+            return;
+        }
+
+        //      Select function confunction
+        el.classList.remove("buttonFilledRed");
+        el.classList.add("buttonFilledSel");
+        selectedLeftButton = el;
+        selectedLeftCont = el.textContent.trim();
+
+        checkMatch();
+    } 
+
+    //      Pretty much the samne as left but instead right, who woul've known!
+    function selectRight(el) {
+
+        //      Deselect
+        if (selectedRightButton === el) {
+
+            el.classList.remove("buttonFilledSel", "buttonFilledRed");
+            el.classList.add("buttonFilledUnSel");
+
+            selectedRightButton = null;
+            selectedRightId = null;
+            selectedRightCont = null;
+            return;
+        }
+
+        //      Unselect the other
+        if (selectedRightButton) {
+
+            selectedRightButton.classList.remove("buttonFilledSel", "buttonFilledRed");
+        }
+
+        //      Mismatch clear
+        if (mismatchTimeout) {
+
+            document.querySelectorAll(".buttonFilledRed").forEach(btn => {
+                btn.classList.remove("buttonFilledSel", "buttonFilledRed");
+                btn.classList.add("buttonFilledUnSel");
+            });
+            
+            clearTimeout(mismatchTimeout);
+            mismatchTimeout = null;
+        }
+
+        selectedRightId = el.id;
+
+        //      check if its clickable
+        if (emptyButtons.includes(selectedRightId)) {
+            return;
+        }
+
+        //      Select function junction
+        el.classList.remove("buttonFilledRed");
+        el.classList.add("buttonFilledSel");
+        selectedRightButton = el;
+        selectedRightCont = el.textContent.trim();
+
+        checkMatch();
+    }
+
+    function checkMatch(){
+   
+    //      Loop through vocabList to find a match on tinder
+        let matchFound = false;
+
+        for (let i = 0; i < vocabList.length; i++) {
+            //      Check if the selected items match either way (i.e., left to 
+            //          right or right to left)
+            if (
+                (selectedLeftCont === vocabList[i][0] && selectedRightCont === vocabList[i][1]) ||
+                (selectedLeftCont === vocabList[i][1] && selectedRightCont === vocabList[i][0])
+            ) {
+                const left = selectedLeftButton;
+                const right = selectedRightButton;
+                vocabCorrect.push(selectedLeftCont, selectedRightCont);
+
+                //      Null all that mf'n shit, I dont know what to think anymore
+                //          man! GET OUTTA MY HEAD MAN!! GET OUTTA MY HEAD!!!
+                matchFound = true;
+                refillLocked = true;
+                selectedLeftButton = null;
+                selectedLeftId = null;
+                selectedRightButton = null;
+                selectedRightId = null;
+                selectedLeftCont = null;
+                selectedRightCont = null;
+
+                //      make it green like weed aaahahaaaa fuck youuuu 
+                //          get greened out
+                left.classList.remove("buttonFilledSel", "buttonFilledUnSel");
+                right.classList.remove("buttonFilledSel", "buttonFilledUnSel");
+                left.classList.add("buttonFilledGrn");
+                right.classList.add("buttonFilledGrn");
+                
+                score = score + 5;
+                vocabCorrectNum++;
+                gameEndQueCt--;
+
+                if (gameRunning == true){
+                    gameQueEndCheck();
+                }
+
+                //      once 1 second passes it clears it, sobers up, and is 
+                //          nothing but an empty void, like how many madens
+                //          you got haha 
+                matchedTimeout = setTimeout(() => {
+                left.classList.remove("buttonFilledGrn");
+                left.classList.add("buttonBlank");
+                
+                //      head empty, brain nice and smooth
+                left.innerHTML = "";
+                right.innerHTML = "";
+
+                right.classList.remove("buttonFilledGrn");
+                right.classList.add("buttonBlank");
+
+                mismatchTimeout = null;
+                refillLocked = false;
+                emptyButtons.push(left.id, right.id);
+                vocabReloadHandler();
+            }, 1000);
+
+
+                break; //       Exit loop if a match is found or sumthin idk
+            }
+        }
+
+        if (!matchFound) {
+            // nulls out only left/right selected
+            if (selectedLeftCont == null){
+            }
+            else if (selectedRightCont == null){
+            }
+            else {
+
+                selectedLeftButton.classList.add("buttonFilledRed");
+                selectedRightButton.classList.add("buttonFilledRed");
+
+                const left = selectedLeftButton;
+                const right = selectedRightButton;
+
+            addWrongPairs(selectedLeftCont, selectedRightCont);            
+            selectedLeftButton = null;
+            selectedLeftId = null;
+            selectedRightButton = null;
+            selectedRightId = null;
+            selectedLeftCont = null;
+            selectedRightCont = null;
+
+            score = score - 3;
+            refillLocked = true;
+
+            mismatchTimeout = setTimeout(() => {
+                left.classList.remove("buttonFilledSel", "buttonFilledRed");
+                left.classList.add("buttonFilledUnSel");
+
+                right.classList.remove("buttonFilledSel", "buttonFilledRed");
+                right.classList.add("buttonFilledUnSel");
+
+                mismatchTimeout = null;
+                refillLocked = false;
+            }, 2000);
+            }
+        }
+    }
+
+    //      This is the function that handles pulling from vocabQue and putting 
+    //          them into the buttons on the left and right
+    function fillButton(){
+
+        //      error catcher ඞ_/ for when vocabQue is sussy empty [(🖑)]
+        if (vocabQue.length < 1) {
+            return;
+        }
+
+        //      get a random match from vocabQue to rightWordFill  
+        let rightWordFill = vocabQue[Math.floor(Math.random() * vocabQue.length)];
+
+        //      get a random word from the selected match put in rightWordFill 
+        //          to rightWordFill
+        let leftWordFill = rightWordFill[Math.floor(Math.random() * rightWordFill.length)];
+
+        //      Remove rightWordFill from vocabQue so it doesnt get reused
+        let index = vocabQue.indexOf(rightWordFill);
+        if (index !== -1) {
+            vocabQue.splice(index, 1);
+        }
+
+        //      delete the variable in leftWordFill from rightWordFill that way it 
+        //          randomizes left to right but also saves time with variables 
+        rightWordFill = rightWordFill.filter(word => word !== leftWordFill)[0];
+
+        //      random left column is selected and put in leftPlace
+        let leftPlaceId = emptyButtons.filter(id => id.startsWith("L"))[
+            Math.floor(Math.random() * emptyButtons.filter(id => id.startsWith("L")).length)
+        ];
+
+        //      random rightg column is selected and put into rightPLace
+        let rightPlaceId = emptyButtons.filter(id => id.startsWith("R"))[
+            Math.floor(Math.random() * emptyButtons.filter(id => id.startsWith("R")).length)
+        ];
+
+        //      remove leftPLace and rightPlace from emptyButtons
+        emptyButtons = emptyButtons.filter(id => id !== leftPlaceId && id !== rightPlaceId);
+
+        //      convert leftPLace and RightPLace to fucking elements, or else it'll
+        //          crash the whole fucking thing
+        let leftPlace = document.getElementById(leftPlaceId);
+        let rightPlace = document.getElementById(rightPlaceId);
+
+        //      remove any and all classes so we can ensure it only has the 
+        //          buttonFilledUnSel class
+        leftPlace.classList.remove(
+            "buttonFilledSel",
+            "buttonFilledUnSel",
+            "buttonFilledRed",
+            "buttonFilledGrn",
+            "buttonBlank"
+        );
+        rightPlace.classList.remove(
+            "buttonFilledSel",
+            "buttonFilledUnSel",
+            "buttonFilledRed",
+            "buttonFilledGrn",
+            "buttonBlank"
+        );
+        leftPlace.classList.add("buttonFilledUnSel");
+        rightPlace.classList.add("buttonFilledUnSel");
+
+        //      fill those divs like how I filled your dad
+        leftPlace.textContent = leftWordFill;
+        rightPlace.textContent = rightWordFill;
+    }
+
+    // 
+    function emptyAllTheButtons() {
+
+        const buttonToEmptyID = ["L1","L2","L3","L4","L5","R1","R2","R3","R4","R5"];
+
+        for (let i = 0; i < buttonToEmptyID.length; i++) {
+
+            const buttonToEmpty = document.getElementById(buttonToEmptyID[i]);
+            if (!buttonToEmpty) continue;
+
+            //      remove any possible state classes
+            buttonToEmpty.classList.remove(
+                "buttonFilledSel",
+                "buttonFilledUnSel",
+                "buttonFilledGrn",
+                "buttonFilledRed"
+            );
+
+            //      reset to blank state
+            buttonToEmpty.classList.add("buttonBlank");
+
+            //      clear text
+            buttonToEmpty.textContent = "";
+        }
+
+        //      reset emptyButtons tracking to match reality
+        emptyButtons = [...buttonToEmptyID];
+
+        console.log("All buttons emptied and reset");
+    }
+
+    //      So when you get a match wrong it goes through here so that it can 
+    //          be added to vocabWrong in order to properly show which vocabs
+    //          need to be put back into rotation.
+    function addWrongPairs(leftValue, rightValue) {
+
+        // make sure vocabWrong exists
+        if (!window.vocabWrong) window.vocabWrong = [];
+
+        // helper to add a pair if not already in vocabWrong
+        function addPairIfNew(pair) {
+            const exists = vocabWrong.some(p => p[0] === pair[0] && p[1] === pair[1]);
+            if (!exists) vocabWrong.push(pair);
+        }
+
+        // find the original pair in vocabList that contains leftValue
+        const leftPair = vocabList.find(pair => pair.includes(leftValue));
+        if (leftPair) addPairIfNew(leftPair);
+
+        // find the original pair in vocabList that contains rightValue
+        const rightPair = vocabList.find(pair => pair.includes(rightValue));
+        if (rightPair) addPairIfNew(rightPair);
+    }
+
+    //      This for some reason causes an error in console, it should be 
+    //          correct, below is another attempt and it doesnt give an error,
+    //          but it BREAKS EVERYTHING Do not ask us how or why so if it 
+    //          works it works, dont complain to us
+    function vocabWrongToString() {
+        return vocabWrong.join(";\n") + ";";
+    }
+
+    // function vocabWrongToString() {
+    // 
+    //     if (!Array.isArray(vocabWrong)) return "";
+    //     return vocabWrong.join(";\n") + ";";
+    // }
+
+    //      when the page is initially loaded, run fillBujtton 5 times to populate the
+    //          the buttons with the demo que
+    function initialLoad() { 
+
+        //      load the demo track to the que and playlist DJ
+        vocabList = vocabDemoList.map(pair => [...pair]);
+        vocabQue  = vocabDemoList.map(pair => [...pair]);
+
+        //      empty all the buttons
+        for (let i = 0; i < 5; i++) {
+            emptyAllTheButtons();
+        }
+
+        //      filled your dad 5 times, get rekt
+        for (let i = 0; i < 5; i++) {
+            fillButton();
+        }
+    }
+
+    //      handler that fills cards wither instantly with first one or after 
+    //          1.5 seconds when no activity is detected.
+    function vocabReloadHandler() {
+
+        //      instant filler
+        if (!gameRunning) {
+            return;
+        }
+
+        if (refillLocked == false){
+            if (emptyButtons.length > 3) {
+                delayRefillTimeout = setTimeout(() => {
+                    delayRefillTimeout = 0;
+
+                    // re-check state at execution time
+                    if (emptyButtons.length > 3) {
+                        fillButton();
+                    } else {
+                    }
+                }, 500);
+            }
+        }
+
+        //      delay refill
+            if (refillLocked == false){
+
+                if (emptyButtons.length === 2) {
+
+                // prevent stacking multiple timers
+                if (delayRefillTimeout) return;
+
+                delayRefillTimeout = setTimeout(() => {
+                    delayRefillTimeout = null;
+
+                    // re-check state at execution time
+                    if (emptyButtons.length === 2) {
+                        fillButton();
+                    }
+                }, 1500);
+            }
+        }
+    }
+
+
+    //      this is called when you click the start button div
+    function startGame() {
+
+        //      import the setReqTime and set it as the timeLeft
+        timeLeft = Number(document.getElementById("setReqTime").value);
+        const timerBox = document.getElementById("timerBox");
+        timerBox.textContent = timeLeft;
+
+        // empty all the buttons
+        emptyAllTheButtons();
+
+        //      trigger the german time lords
+        timerCountDown();
+
+        //      bring in the vocab
+        vocabList = [];
+        const rawInput = document.getElementById("vocabUserInput").value;
+
+        //      Split by semicolon into pairs
+        vocabList = rawInput
+            .split(";")
+            .map(pair => pair.trim())
+            .filter(pair => pair.length > 0)
+            .map(pair => {
+                const parts = pair.split(",");
+                if (parts.length !== 2) return null;
+
+                return [parts[0].trim(), parts[1].trim()];
+                console.log(vocabList)
+
+            })
+            .filter(pair => pair !== null);
+
+        //      Reset queue from vocabList
+        vocabQue = vocabList.map(pair => [...pair]);
+
+        startFailSafe();
+
+        emptyButtons = ["L1", "R1", "L2", "R2", "L3", "R3", "L4", "R4", "L5", "R5"];
+        //      filled your dad another 5 times, get super rekt
+        for (let i = 0; i < 5; i++) {
+            fillButton();
+        }
+
+        gameRunning = true;
+        gameEndQueCt = vocabList.length;
+
+        vocabCorrectNum = 0;
+        score = 0;
+        vocabCorrect = [];
+        vocabWrong = [];
+
+        vocabReloadHandler();
+
+        //      hide startDiv
+        const startDiv = document.getElementById("startDiv");
+        const vocabInputTextArea = document.getElementById("vocabInputTextArea");
+        startDiv.style.display = "none";
+        vocabInputTextArea.style.display = "none";
+
+        //      show timerDiv
+        const timerDiv = document.getElementById("timerDiv");
+        timerDiv.style.display = "block";
+
+    }
+
+    //      check if there is atleast one valid pair in the vocabList, need to make 
+    //          a delay of 89 as it needs a second to excecute properly and that
+    //          is the fastest it can be to reset. was gonna be 90 just to make even 
+    //          but like 90 also breaks? JavaScript is weird fam and we added this 
+    //          like later on because everyone was breaking the vocab or not reading
+    //          instructions lmao so were also adding instructions to the page itself
+    //          lmao :P
+    function startFailSafe() {
+        if (vocabList.length < 1) {
+            gameEnd();
+            setTimeout(() => {
+                alert("Heyooooo so you need at least one valid vocab in the text field like: Leer, Read; Los, The; Instrucciones, Instructions; Abajo, Below; etc etc. Much loooove <3");                    
+                setTimeout(() => {
+                    gameReset();
+                }, 89); 
+            }, 100);
+        }
+        
+        
+    }
+
+    // the timer
+    function timerCountDown(){
+    
+        const timerBox = document.getElementById('timerBox');
+
+        //      Decrease time by 1
+        const countdown = setInterval(() => {
+        timeLeft--;            
+        timerBox.textContent = timeLeft;
+
+        //      Stop when time runs out
+        if (timeLeft < 0) {
+            clearInterval(countdown);
+
+            let missedMatchesLEft = vocabList.length - vocabCorrect.length
+            missedMatchesLEft = missedMatchesLEft * 2
+            score = score - missedMatchesLEft
+            gameEnd();
+        }
+        }, 1000);
+
+    }
+
+    //      this is to check if end game id valid, if it is then it triggers 
+    //          gameEnd()
+    function gameQueEndCheck(){
+
+        if (gameEndQueCt < 1){
+            let timeBonus = Number(document.getElementById("setReqTime").value);
+            timeBonus = timeBonus - timeLeft;
+            score = score + timeBonus;
+            gameEnd();
+        }
+    }
+
+    //      Call us crazy but this is the end of the line for the game
+    function gameEnd(){
+
+        timeLeft = 0;
+        gameRunning = false
+        const timerDiv = document.getElementById("timerDiv");
+        const resultsDiv = document.getElementById("resultsDiv");
+        const scoreP = document.getElementById("scoreP");
+        const listOfWrongVocabsP = document.getElementById("listOfWrongVocabsP");
+        const numWrongP = document.getElementById("numWrongP");
+        const numCorrectP = document.getElementById("numCorrectP");
+        let numVocabWrong = 0;
+
+        numCorrectP.textContent = "Right: " + vocabCorrectNum;
+        
+        if (vocabWrong.length > 0) {
+            numVocabWrong = vocabWrong.length;
+            vocabWrong = vocabWrongToString();
+        }
+        else {
+            numVocabWrong = "0";
+            vocabWrong = "N/A";
+        }
+        console.log("Ignore that error, Javascript is being really fucking stupid")
+
+
+        numWrongP.textContent = "Wrong: " + numVocabWrong;
+        listOfWrongVocabsP.textContent = vocabWrong;        
+        scoreP.textContent = "SCORE!: " + score;
+
+
+        emptyButtons = ["L1", "R1", "L2", "R2", "L3", "R3", "L4", "R4", "L5", "R5"];
+        timerDiv.style.display = "none";
+        resultsDiv.style.display = "block";
+    }
+
+    function gameReset() {
+        const resultsDiv = document.getElementById("resultsDiv");
+        const startDiv = document.getElementById("startDiv");
+        const vocabInputTextArea = document.getElementById("vocabInputTextArea");
+        resultsDiv.style.display = "none";
+        startDiv.style.display = "block";
+        vocabInputTextArea.style.display = "block";
+        vocabCorrectNum = 0;
+        score = 0;
+        vocabCorrect = [];
+        vocabWrong = [];
+        initialLoad();
+
+    }
+
+</script>
+</html>
