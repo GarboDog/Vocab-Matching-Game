@@ -43,8 +43,9 @@ how many you got wrong, and a list of words that you had trouble with
 obviosly in the same format as the input so you can copy and paste
 them back into the input if you would like to retry those words later.
 
-PS! YOU ARE FREE TO RIP THIS!! just throw a pitty credit link back
-to our website garbodog.com pretty please! :3 
+PS! YOU ARE FREE TO RIP THIS!! <a href="https://github.com/GarboDog/Vocab-Matching-Game">GITHUB</a>
+Just throw a pitty credit link back to our website pretty please!
+<a href="garbodog.com">GarboDog.com</a> :3
 
 
 KNOWN BUGS: 
