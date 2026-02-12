@@ -49,8 +49,10 @@ to our website garbodog.com pretty please! :3
 
 KNOWN BUGS: 
 - Fill button can sometimes over-write correct/wrong animations.
+
 NEED TO FIXES: 
 - Scoring system
+
 UPCOMING FEATURES:
 - Better way of importing Vocabulary
 - Settings for game functionality
